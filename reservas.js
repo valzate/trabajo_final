@@ -110,3 +110,5 @@ function menu() {
     }
   }
 }
+// Ejecutar el menú
+menu();
