@@ -33,7 +33,7 @@ def buscar_reserva():
     else:
         print("⚠️ No se encontraron registros.")
     print()
-# Eliminar una reserva
+# Función para eliminar una reserva
 def eliminar_reserva():
     cod_est = input("Código del estudiante: ")
     cod_lib = input("Código del libro: ")
@@ -49,7 +49,7 @@ def eliminar_reserva():
         print("🗑️ Reserva eliminada correctamente.\n")
     else:
         print("⚠️ No se encontró esa reserva.\n")
-# Mostrar todas las reservas
+# Funcion para mostrar todas las reservas de ser necesario
 def mostrar_reservas():
     if not reservas:
         print("📂 No hay reservas registradas.\n")
@@ -58,3 +58,31 @@ def mostrar_reservas():
         for r in reservas:
             print(f"Estudiante: {r[1]} ({r[0]}) - Libro: {r[3]} ({r[2]})")
         print()
+# Menú interactivo
+def menu():
+    opcion = ""
+    while opcion != "5":
+        print("====== MENÚ RESERVAS ======")
+        print("1. Ingresar reserva")
+        print("2. Buscar reserva")
+        print("3. Eliminar reserva")
+        print("4. Mostrar todas las reservas")
+        print("5. Salir")
+        opcion = input("Seleccione una opción: ")
+
+        if opcion == "1":
+            ingresar_reserva()
+        elif opcion == "2":
+            buscar_reserva()
+        elif opcion == "3":
+            eliminar_reserva()
+        elif opcion == "4":
+            mostrar_reservas()
+        elif opcion == "5":
+            print("👋 Saliendo del sistema...")
+        else:
+            print("⚠️ Opción inválida.\n")
+
+
+# Ejecutar el programa
+menu()
