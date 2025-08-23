@@ -82,7 +82,52 @@ def menu():
             print("👋 Saliendo del sistema...")
         else:
             print("⚠️ Opción inválida.\n")
-
-
 # Ejecutar el programa
 menu()
+import time
+def ingresar_reserva(cod_est, nom_est, cod_lib, nom_lib):
+    reservas.append([cod_est, nom_est, cod_lib, nom_lib])
+
+def buscar_reserva(cod_est=None, cod_lib=None):
+    if cod_est:
+        return [r for r in reservas if r[0] == cod_est]
+    elif cod_lib:
+        return [r for r in reservas if r[2] == cod_lib]
+    return []
+
+def eliminar_reserva(cod_est, cod_lib):
+    for i, r in enumerate(reservas):
+        if r[0] == cod_est and r[2] == cod_lib:
+            reservas.pop(i)
+            return True
+    return False
+def probar_escenario(n):
+    global reservas
+    reservas = []  # Reiniciar lista
+
+    print(f"\n--- Escenario con {n} reservas ---")
+
+    # Medir tiempo de inserción
+    inicio = time.time()
+    for i in range(n):
+        ingresar_reserva(f"E{i}", f"Estudiante{i}", f"L{i}", f"Libro{i}")
+    fin = time.time()
+    print(f"Inserción de {n} reservas: {fin - inicio:.6f} segundos")
+
+    # Medir tiempo de búsqueda (último registro = peor caso)
+    inicio = time.time()
+    buscar_reserva(cod_est=f"E{n-1}")
+    fin = time.time()
+    print(f"Búsqueda de un estudiante: {fin - inicio:.6f} segundos")
+
+    # Medir tiempo de eliminación (último registro = peor caso)
+    inicio = time.time()
+    eliminar_reserva(f"E{n-1}", f"L{n-1}")
+    fin = time.time()
+    print(f"Eliminación de una reserva: {fin - inicio:.6f} segundos")
+
+
+# Ejecutar pruebas
+
+for cantidad in [10, 100, 1000]:
+    probar_escenario(cantidad) 
