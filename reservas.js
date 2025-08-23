@@ -44,3 +44,19 @@ function buscarReserva() {
   }
   console.log();
 }
+// Función para eliminar una reserva
+function eliminarReserva() {
+  const codigoEstudiante = prompt("Código del estudiante: ");
+  const codigoLibro = prompt("Código del libro: ");
+
+  const indice = reservas.findIndex(
+    r => r[0] === codigoEstudiante && r[2] === codigoLibro
+  );
+
+  if (indice !== -1) {
+    reservas.splice(indice, 1);
+    console.log("🗑️ Reserva eliminada correctamente.\n");
+  } else {
+    console.log("⚠️ No se encontró ninguna reserva con esos datos.\n");
+  }
+}
