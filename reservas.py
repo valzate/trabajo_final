@@ -33,3 +33,19 @@ def buscar_reserva():
     else:
         print("⚠️ No se encontraron registros.")
     print()
+# Eliminar una reserva
+def eliminar_reserva():
+    cod_est = input("Código del estudiante: ")
+    cod_lib = input("Código del libro: ")
+
+    indice = -1
+    for i, r in enumerate(reservas):
+        if r[0] == cod_est and r[2] == cod_lib:
+            indice = i
+            break
+
+    if indice != -1:
+        reservas.pop(indice)
+        print("🗑️ Reserva eliminada correctamente.\n")
+    else:
+        print("⚠️ No se encontró esa reserva.\n")
