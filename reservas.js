@@ -60,3 +60,19 @@ function eliminarReserva() {
     console.log("⚠️ No se encontró ninguna reserva con esos datos.\n");
   }
 }
+
+// M
+// Función para mostrar todas las reservas de ser necesario
+function mostrarReservas() {
+  if (reservas.length === 0) {
+    console.log("📂 No hay reservas registradas.\n");
+  } else {
+    console.log("📚 Lista de reservas:");
+    reservas.forEach(r =>
+      console.log(
+        `Estudiante: ${r[1]} (${r[0]}) - Libro: ${r[3]} (${r[2]})`
+      )
+    );
+    console.log();
+  }
+}
