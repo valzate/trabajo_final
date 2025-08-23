@@ -49,3 +49,12 @@ def eliminar_reserva():
         print("🗑️ Reserva eliminada correctamente.\n")
     else:
         print("⚠️ No se encontró esa reserva.\n")
+# Mostrar todas las reservas
+def mostrar_reservas():
+    if not reservas:
+        print("📂 No hay reservas registradas.\n")
+    else:
+        print("📚 Lista de reservas:")
+        for r in reservas:
+            print(f"Estudiante: {r[1]} ({r[0]}) - Libro: {r[3]} ({r[2]})")
+        print()
