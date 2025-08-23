@@ -76,3 +76,37 @@ function mostrarReservas() {
     console.log();
   }
 }
+// Menú interactivo
+
+function menu() {
+  let opcion = "";
+  while (opcion !== "5") {
+    console.log("====== MENÚ RESERVAS ======");
+    console.log("1. Ingresar reserva");
+    console.log("2. Buscar reserva");
+    console.log("3. Eliminar reserva");
+    console.log("4. Mostrar todas las reservas");
+    console.log("5. Salir");
+    opcion = prompt("Seleccione una opción: ");
+
+    switch (opcion) {
+      case "1":
+        ingresarReserva();
+        break;
+      case "2":
+        buscarReserva();
+        break;
+      case "3":
+        eliminarReserva();
+        break;
+      case "4":
+        mostrarReservas();
+        break;
+      case "5":
+        console.log("👋 Saliendo del sistema...");
+        break;
+      default:
+        console.log("⚠️ Opción inválida.\n");
+    }
+  }
+}
