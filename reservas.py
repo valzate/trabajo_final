@@ -1,4 +1,4 @@
-# Matriz doblemente anidada
+# Matriz doblemente anidada se hace esta ya que necesita guardar 4 datos por reserva
 reservas = []
 # Función para agresar una nueva reserva
 def ingresar_reserva():
@@ -58,7 +58,7 @@ def mostrar_reservas():
         for r in reservas:
             print(f"Estudiante: {r[1]} ({r[0]}) - Libro: {r[3]} ({r[2]})")
         print()
-# Menú interactivo
+# Menú interactivo para el usuario y la ejecución del programa
 def menu():
     opcion = ""
     while opcion != "5":
@@ -127,7 +127,7 @@ def probar_escenario(n):
     print(f"Eliminación de una reserva: {fin - inicio:.6f} segundos")
 
 
-# Ejecutar pruebas
+# Se ejecuta esta prueba para evaluar el rendimiento del sistema
 
 for cantidad in [10, 100, 1000]:
     probar_escenario(cantidad) 
